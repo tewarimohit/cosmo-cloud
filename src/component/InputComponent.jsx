@@ -58,6 +58,7 @@ const InputComponent = (props) => {
       field_name: "addName",
       field_type: "STRING",
       isRequired: true,
+      nesting: 1,
     };
     handleChildFieldsChange([...childFields, newChildField]);
   };
@@ -65,7 +66,7 @@ const InputComponent = (props) => {
   const showChildField = () => {
     if (fieldDataType === OPTIONS[3].value) {
       return (
-        <>
+        <div className="child">
           {childFields.map((childField, index) => (
             <InputComponent
               key={childField.id}
@@ -82,7 +83,7 @@ const InputComponent = (props) => {
               }}
             />
           ))}
-        </>
+        </div>
       );
     }
     return null;
@@ -91,7 +92,7 @@ const InputComponent = (props) => {
   return (
     <Fragment>
       <div
-        className={`form-input-data ${addField.hasParent ? "vl ml-20" : ""} hr`}
+        className={`form-input-data ${addField.hasParent ? "vl" : ""} hr`}
         onMouseOver={handleShowIcons}
         onMouseOut={handleHideIcons}
       >
