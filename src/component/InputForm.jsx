@@ -22,7 +22,10 @@ const InputForm = () => {
 
   const changeFieldData = (updatedField) => {
     const updatedFields = [...addField];
-    const index = updatedFields.findIndex((field) => field === updatedField);
+
+    const index = updatedFields.findIndex(
+      (field) => field.id === updatedField.id
+    );
     updatedFields[index] = updatedField;
     setAddField(updatedFields);
   };
